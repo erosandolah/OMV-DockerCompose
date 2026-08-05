@@ -1,1 +1,4 @@
 global.env
+
+#netbird
+netbird/netbird-server-config.yaml
