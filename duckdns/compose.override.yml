@@ -4,7 +4,6 @@
 # duckdns
 # v1
 
-
 services:
   duckdns:
     environment:
