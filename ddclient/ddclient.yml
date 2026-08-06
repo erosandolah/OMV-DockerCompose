@@ -10,5 +10,5 @@ services:
     image: lscr.io/linuxserver/ddclient:latest
     container_name: ddclient
     volumes:
-      - ./ddclient.conf:/config
+      - .:/config
     restart: unless-stopped
