@@ -61,13 +61,13 @@ services:
     networks: [netbird]
     environment:
       # Endpoints
-      - NETBIRD_MGMT_API_ENDPOINT=https://${DUCKDNS_FQDN}
-      - NETBIRD_MGMT_GRPC_API_ENDPOINT=https://${DUCKDNS_FQDN}
+      - NETBIRD_MGMT_API_ENDPOINT=https://${MY_FQDN}
+      - NETBIRD_MGMT_GRPC_API_ENDPOINT=https://${MY_FQDN}
       # OIDC - using embedded IdP
       - AUTH_AUDIENCE=netbird-dashboard
       - AUTH_CLIENT_ID=netbird-dashboard
       - AUTH_CLIENT_SECRET=
-      - AUTH_AUTHORITY=https://${DUCKDNS_FQDN}/oauth2
+      - AUTH_AUTHORITY=https://${MY_FQDN}/oauth2
       - USE_AUTH0=false
       - AUTH_SUPPORTED_SCOPES=openid profile email groups
       - AUTH_REDIRECT_URI=/nb-auth
@@ -78,7 +78,7 @@ services:
       - LETSENCRYPT_DOMAIN=none
     labels:
       - traefik.enable=true
-      - traefik.http.routers.netbird-dashboard.rule=Host(`${DUCKDNS_FQDN}`)
+      - traefik.http.routers.netbird-dashboard.rule=Host(`${MY_FQDN}`)
       - traefik.http.routers.netbird-dashboard.entrypoints=websecure
       - traefik.http.routers.netbird-dashboard.tls=true
       - traefik.http.routers.netbird-dashboard.tls.certresolver=letsencrypt
@@ -106,14 +106,14 @@ services:
     labels:
       - traefik.enable=true
       # gRPC router (needs h2c backend for HTTP/2 cleartext)
-      - traefik.http.routers.netbird-grpc.rule=Host(`${DUCKDNS_FQDN}`) && (PathPrefix(`/signalexchange.SignalExchange/`) || PathPrefix(`/management.ManagementService/`) || PathPrefix(`/management.ProxyService/`))
+      - traefik.http.routers.netbird-grpc.rule=Host(`${MY_FQDN}`) && (PathPrefix(`/signalexchange.SignalExchange/`) || PathPrefix(`/management.ManagementService/`) || PathPrefix(`/management.ProxyService/`))
       - traefik.http.routers.netbird-grpc.entrypoints=websecure
       - traefik.http.routers.netbird-grpc.tls=true
       - traefik.http.routers.netbird-grpc.tls.certresolver=letsencrypt
       - traefik.http.routers.netbird-grpc.service=netbird-server-h2c
       - traefik.http.routers.netbird-grpc.priority=100
       # Backend router (relay, WebSocket, API, OAuth2)
-      - traefik.http.routers.netbird-backend.rule=Host(`${DUCKDNS_FQDN}`) && (PathPrefix(`/relay`) || PathPrefix(`/ws-proxy/`) || PathPrefix(`/api`) || PathPrefix(`/oauth2`))
+      - traefik.http.routers.netbird-backend.rule=Host(`${MY_FQDN}`) && (PathPrefix(`/relay`) || PathPrefix(`/ws-proxy/`) || PathPrefix(`/api`) || PathPrefix(`/oauth2`))
       - traefik.http.routers.netbird-backend.entrypoints=websecure
       - traefik.http.routers.netbird-backend.tls=true
       - traefik.http.routers.netbird-backend.tls.certresolver=letsencrypt

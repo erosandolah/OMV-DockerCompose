@@ -4,6 +4,7 @@
 # netbird
 # v1
 
+
 services:
   traefik:
     environment:
