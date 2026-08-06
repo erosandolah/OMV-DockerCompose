@@ -148,7 +148,7 @@ services:
       # Allow insecure gRPC connection to management (required for internal Docker network)
       - NB_PROXY_ALLOW_INSECURE=true
       # Public URL where this proxy is reachable (used for cluster registration)
-      - NB_PROXY_DOMAIN=${DUCKDNS_FQDN}
+      - NB_PROXY_DOMAIN=${MY_FQDN}
       - NB_PROXY_ADDRESS=:8443
       - NB_PROXY_TOKEN=nbx_6uli5RafKGFOiJmkDHndHymkKudk974J25NA
       - NB_PROXY_CERTIFICATE_DIRECTORY=/certs
