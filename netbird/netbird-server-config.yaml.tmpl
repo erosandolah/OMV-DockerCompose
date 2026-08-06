@@ -6,7 +6,7 @@
 
 server:
   listenAddress: ":80"
-  exposedAddress: "https://${DUCKDNS_FQDN}:443"
+  exposedAddress: "https://${MY_FQDN}:443"
   stunPorts:
     - 3478
   metricsPort: 9090
@@ -18,11 +18,11 @@ server:
   dataDir: "/var/lib/netbird"
 
   auth:
-    issuer: "https://${DUCKDNS_FQDN}/oauth2"
+    issuer: "https://${MY_FQDN}/oauth2"
     signKeyRefreshEnabled: true
     dashboardRedirectURIs:
-      - "https://${DUCKDNS_FQDN}/nb-auth"
-      - "https://${DUCKDNS_FQDN}/nb-silent-auth"
+      - "https://${MY_FQDN}/nb-auth"
+      - "https://${MY_FQDN}/nb-silent-auth"
     cliRedirectURIs:
       - "http://localhost:53000/"
 
