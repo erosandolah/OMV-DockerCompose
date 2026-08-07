@@ -9,9 +9,9 @@ services:
     image: debian:latest
     container_name: debian-sandbox
     command: sleep infinity
-    working_dir: /sandbox
+    working_dir: /debian-sandbox
     tty: true
     stdin_open: true
     restart: unless-stopped
     volumes:
-      - /srv/dev-disk-by-uuid-dcb42003-3c05-40dc-9b1d-503b3ff09bce/OMV-DockerData-NVME/debian-sandbox/sandbox:/sandbox
+      - /srv/dev-disk-by-uuid-dcb42003-3c05-40dc-9b1d-503b3ff09bce/OMV-DockerData-NVME/debian-sandbox:/debian-sandbox
