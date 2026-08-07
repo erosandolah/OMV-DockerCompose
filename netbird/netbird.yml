@@ -141,7 +141,7 @@ services:
       netbird-server:
         condition: service_started
     extra_hosts:
-      - "${MY_FQDN}:host-gateway"
+      - "${MY_FQDN}:172.30.0.10"
     environment:
       # NetBird Proxy Configuration
       - NB_PROXY_DEBUG_LOGS=false
