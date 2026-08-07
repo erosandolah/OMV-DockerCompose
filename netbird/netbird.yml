@@ -146,7 +146,7 @@ services:
       # NetBird Proxy Configuration
       - NB_PROXY_DEBUG_LOGS=false
       # Use internal Docker network to connect to management (avoids hairpin NAT issues)
-      - NB_PROXY_MANAGEMENT_ADDRESS=http://netbird-server:80
+      - NB_PROXY_MANAGEMENT_ADDRESS=http://netbird-server:8443
       # Allow insecure gRPC connection to management (required for internal Docker network)
       - NB_PROXY_ALLOW_INSECURE=true
       # Public URL where this proxy is reachable (used for cluster registration)
