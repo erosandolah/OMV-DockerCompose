@@ -140,8 +140,8 @@ services:
     depends_on:
       netbird-server:
         condition: service_started
-    extra_hosts:
-      - "${MY_FQDN}:host-gateway"
+    #extra_hosts:
+    #  - "${MY_FQDN}:host-gateway"
     environment:
       # NetBird Proxy Configuration
       - NB_PROXY_DEBUG_LOGS=false
