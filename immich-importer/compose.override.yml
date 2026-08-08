@@ -13,4 +13,4 @@ services:
       - PGID=${APPUSER_GID}
       - TZ=${MY_TZ}
       - IMMICH_INSTANCE_URL=http://192.168.0.100:2283
-      - IMMICH_API_KEY=AZ_API_KULCSOD_IDE_JÖN
+      - IMMICH_API_KEY=${IMMICH_API_KEY}
