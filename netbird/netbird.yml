@@ -45,7 +45,7 @@ services:
       - '80:80'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /srv/dev-disk-by-uuid-dcb42003-3c05-40dc-9b1d-503b3ff09bce/OMV-DockerData-NVME/netbird/traefik/letsencrypt:/letsencrypt
+      - ${DC_DOCKERDATA}/netbird/traefik/letsencrypt:/letsencrypt
       - ./traefik-dynamic.yaml:/etc/traefik/dynamic.yaml:ro
     logging:
       driver: "json-file"
@@ -100,8 +100,8 @@ services:
     ports:
       - '3478:3478/udp'
     volumes:
-      - /srv/dev-disk-by-uuid-dcb42003-3c05-40dc-9b1d-503b3ff09bce/OMV-DockerData-NVME/netbird/netbird-server:/var/lib/netbird
-      - /srv/dev-disk-by-uuid-dcb42003-3c05-40dc-9b1d-503b3ff09bce/OMV-DockerData-NVME/netbird/netbird-server-config.yaml:/etc/netbird/config.yaml
+      - ${DC_DOCKERDATA}/netbird/netbird-server:/var/lib/netbird
+      - ${DC_DOCKERDATA}/netbird/netbird-server-config.yaml:/etc/netbird/config.yaml
     command: ["--config", "/etc/netbird/config.yaml"]
     labels:
       - traefik.enable=true
@@ -162,7 +162,7 @@ services:
       # Trust Traefik's IP for PROXY protocol headers
       - NB_PROXY_TRUSTED_PROXIES=172.30.0.10
     volumes:
-      - /srv/dev-disk-by-uuid-dcb42003-3c05-40dc-9b1d-503b3ff09bce/OMV-DockerData-NVME/netbird/proxy/certs:/certs
+      - ${DC_DOCKERDATA}/netbird/proxy/certs:/certs
     labels:
       # TCP passthrough for any unmatched domain (proxy handles its own TLS)
       - traefik.enable=true
