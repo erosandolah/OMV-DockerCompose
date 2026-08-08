@@ -4,6 +4,7 @@
 # wikijs
 # 
 
+
 services:
   db:
     environment:

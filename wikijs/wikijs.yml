@@ -12,7 +12,7 @@ services:
       driver: none
     restart: unless-stopped
     volumes:
-      - /srv/dev-disk-by-uuid-dcb42003-3c05-40dc-9b1d-503b3ff09bce/OMV-DockerData-NVME/wikijs/db-data:/var/lib/postgresql/data
+      - ${DC_DOCKERDATA}/wikijs/db-data:/var/lib/postgresql/data
 
   wiki:
     image: ghcr.io/requarks/wiki:2
@@ -26,3 +26,4 @@ services:
     restart: unless-stopped
     ports:
       - "3000:3000"
+
