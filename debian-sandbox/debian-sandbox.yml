@@ -14,4 +14,4 @@ services:
     stdin_open: true
     restart: unless-stopped
     volumes:
-      - /srv/dev-disk-by-uuid-dcb42003-3c05-40dc-9b1d-503b3ff09bce/OMV-DockerData-NVME/debian-sandbox:/debian-sandbox
+      - ${DC_DOCKERDATA}/debian-sandbox:/debian-sandbox
