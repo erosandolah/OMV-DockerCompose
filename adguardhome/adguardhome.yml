@@ -15,8 +15,8 @@ services:
       - ${DC_DOCKERDATA}/adguardhome/conf:/opt/adguardhome/conf
     ports:
       # Plain DNS (Required for your NetBird client queries)
-      - "53:53/tcp"
-      - "53:53/udp"
+      - "192.168.0.100:53:53/tcp"
+      - "192.168.0.100:53:53/udp"
       # Web UI Admin Dashboard (Changed to 8080 to avoid OMV web interface conflicts)
       - "8081:80/tcp"
       # Initial Setup Wizard Port (Only used the very first time you configure it)
