@@ -161,6 +161,8 @@ services:
       - NB_PROXY_PROXY_PROTOCOL=true
       # Trust Traefik's IP for PROXY protocol headers
       - NB_PROXY_TRUSTED_PROXIES=172.30.0.10
+      # To enable to operate as a private proxy
+      - NB_PROXY_PRIVATE=true
     volumes:
       - ${DC_DOCKERDATA}/netbird/proxy/certs:/certs
     labels:
