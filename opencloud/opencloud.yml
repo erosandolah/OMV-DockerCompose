@@ -25,8 +25,8 @@ services:
       - COLLABORATION_APP_ADDR=https://eposz.nb.vpn
       - COLLABORATION_APP_INSECURE=true
     volumes:
-      - ${DC_DOCKERDATA_RAID}/config:/etc/opencloud
-      - ${DC_DOCKERDATA_RAID}/data:/var/lib/opencloud
+      - ${DC_DOCKERDATA_RAID}/opencloud/config:/etc/opencloud
+      - ${DC_DOCKERDATA_RAID}/opencloud/data:/var/lib/opencloud
     ports:
       # Binds directly to port 9200. Safe since it's behind a firewall.
       - "9200:9200"
