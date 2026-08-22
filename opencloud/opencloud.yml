@@ -37,12 +37,14 @@ services:
     image: collabora/code:latest
     container_name: opencloud_collabora
     restart: always
+    cap_add:
+      - SYS_ADMIN
     environment:
       # Allows Collabora to accept frame embedding from your NetBird domain
       - aliasgroup1=https://eposz.nb.vpn
       - username=admin
       - password=AnotherSecurePassword456
-      - EXTRA_PARAMS=--o:ssl.enable=true --o:ssl.termination=false --o:ssl.ssl_verify=false
+      - EXTRA_PARAMS=--o:ssl.enable=true --o:ssl.termination=false --o:ssl.ssl_verify=false --o:jail.mount_jail_tree=false
     ports:
       # Binds to port 9980 on the host machinery
       - "9980:9980"
