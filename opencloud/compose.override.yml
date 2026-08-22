@@ -5,3 +5,16 @@
 # 
 
 
+services:
+  opencloud:
+    environment:
+      # From the not git versioned global.env
+      - PUID=${APPUSER_UID}
+      - PGID=${APPUSER_GID}
+      - TZ=${MY_TZ}
+  collabora:
+    environment:
+      # From the not git versioned global.env
+      - PUID=${APPUSER_UID}
+      - PGID=${APPUSER_GID}
+      - TZ=${MY_TZ}
