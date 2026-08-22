@@ -11,6 +11,7 @@ services:
     restart: always
     environment:
       - OPENCLOUD_INIT_INSTANCE=true
+      - JWT_SECRET=a_long_random_string_of_your_choice_12345
       - IDM_ADMIN_PASSWORD=YourSecurePassword123
       
       # 1. Swapped the hardcoded IP out for your NetBird VPN domain
