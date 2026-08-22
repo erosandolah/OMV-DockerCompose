@@ -12,9 +12,11 @@ services:
       - PUID=${APPUSER_UID}
       - PGID=${APPUSER_GID}
       - TZ=${MY_TZ}
+      - IDM_ADMIN_PASSWORD=${OPENCLOUD_ADMIN_PASSWORD}
   collabora:
     environment:
       # From the not git versioned global.env
       - PUID=${APPUSER_UID}
       - PGID=${APPUSER_GID}
       - TZ=${MY_TZ}
+      - password=${COLLABORA_ADMIN_PASSWORD}

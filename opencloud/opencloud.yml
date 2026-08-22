@@ -42,7 +42,6 @@ services:
       - aliasgroup1=https://eposz.nb.vpn
       - username=admin
       - password=AnotherSecurePassword456
-      - EXTRA_PARAMS=--o:ssl.ssl_verify=false
       - EXTRA_PARAMS=--o:ssl.enable=true --o:ssl.termination=false --o:ssl.ssl_verify=false
     ports:
       # Binds to port 9980 on the host machinery
