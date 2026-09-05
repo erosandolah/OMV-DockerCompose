@@ -20,7 +20,7 @@ services:
       # Docker provider
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
-      - "--providers.docker.network=netbird"
+      - "--providers.docker.network=netbird_netbird"
       # Entrypoints
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
@@ -183,7 +183,7 @@ services:
 
 networks:
   netbird:
-    name: netbird  # <-- Ez fixálja a nevet, nem lesz "netbird_netbird"
+    #name: netbird  # <-- Ez fixálja a nevet, nem lesz "netbird_netbird"
     driver: bridge
     ipam:
       config:
