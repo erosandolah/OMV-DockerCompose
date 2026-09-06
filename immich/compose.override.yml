@@ -12,6 +12,8 @@ services:
       - PUID=${APPUSER_UID}
       - PGID=${APPUSER_GID}
       - TZ=${MY_TZ}
+    volumes:
+      - ${DC_DOCKERDATA_RAID}/immich/external_library:/external_library
   immich-machine-learning:
     environment:
       # From the not git versioned global.env
