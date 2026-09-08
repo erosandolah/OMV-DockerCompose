@@ -2,3 +2,6 @@ global.env
 
 #netbird
 netbird/netbird-server-config.yaml
+
+#pihole
+pihole/etc-pihole
