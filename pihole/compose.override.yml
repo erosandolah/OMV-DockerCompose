@@ -14,7 +14,7 @@ services:
       - PGID=${APPUSER_GID}
       - PIHOLE_GID=${APPUSER_GID}
       - TZ=${MY_TZ}
-      - FTLCONF_webserver_api_password='correct horse battery staple'
+      - FTLCONF_webserver_api_password=${PIHOLE_FTLCONF_webserver_api_password}
     cap_add:
       #  we need to be able to change ownership of log files and databases in case FTL is started as a different user than pihole
       - CHOWN
