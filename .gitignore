@@ -5,3 +5,8 @@ netbird/netbird-server-config.yaml
 
 #pihole
 pihole/etc-pihole
+
+#docmost
+docmost/db_data
+docmost/docmost_data
+docmost/redis_data
