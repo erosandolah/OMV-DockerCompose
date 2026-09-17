@@ -8,10 +8,11 @@ services:
   debian:
     image: debian:latest
     container_name: debian-sandbox
+    privileged: true
+    stdin_open: true
+    tty: true
     command: sleep infinity
     working_dir: /debian-sandbox
-    tty: true
-    stdin_open: true
     restart: unless-stopped
     volumes:
       - ${DC_DOCKERDATA}/debian-sandbox:/debian-sandbox
