@@ -7,12 +7,16 @@
 
 services:
   traefik:
+    dns:
+      - 192.168.0.100
     environment:
       # From the not git versioned global.env
       - PUID=${APPUSER_UID}
       - PGID=${APPUSER_GID}
       - TZ=${MY_TZ}
   dashboard:
+    dns:
+      - 192.168.0.100
     environment:
       # From the not git versioned global.env
       - PUID=${APPUSER_UID}
@@ -27,6 +31,8 @@ services:
       - PGID=${APPUSER_GID}
       - TZ=${MY_TZ}
   proxy:
+    dns:
+      - 192.168.0.100
     environment:
       # From the not git versioned global.env
       - PUID=${APPUSER_UID}
