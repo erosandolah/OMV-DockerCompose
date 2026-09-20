@@ -7,6 +7,7 @@
 
 services:
   postgresql:
+    container_name: authentik-postgresql
     environment:
       # From the not git versioned global.env
       - PUID=${APPUSER_UID}
@@ -15,6 +16,7 @@ services:
     networks:
       - netbird_netbird
   server:
+    container_name: authentik-server
     environment:
       # From the not git versioned global.env
       - PUID=${APPUSER_UID}
@@ -23,6 +25,7 @@ services:
     networks:
       - netbird_netbird
   worker:
+    container_name: authentik-worker
     environment:
       # From the not git versioned global.env
       - PUID=${APPUSER_UID}
