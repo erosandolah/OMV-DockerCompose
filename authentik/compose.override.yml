@@ -23,7 +23,9 @@ services:
       - PGID=${APPUSER_GID}
       - TZ=${MY_TZ}
     networks:
-      - netbird_netbird
+      netbird_netbird:
+        aliases:
+          - authentik.eposz
   worker:
     #container_name: authentik-worker
     environment:
