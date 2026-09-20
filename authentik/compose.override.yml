@@ -16,7 +16,7 @@ services:
     networks:
       - netbird_netbird
   server:
-    container_name: authentik-server
+    container_name: authentik.eposz
     environment:
       # From the not git versioned global.env
       - PUID=${APPUSER_UID}
