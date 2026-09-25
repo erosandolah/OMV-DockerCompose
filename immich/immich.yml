@@ -27,33 +27,15 @@ services:
     restart: always
     healthcheck:
       disable: false
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities:
-                - gpu
-                - compute
-                - video
 
   immich-machine-learning:
     container_name: immich_machine_learning
-    image: ghcr.io/immich-app/immich-machine-learning:v3-cuda
+    image: ghcr.io/immich-app/immich-machine-learning:v3
     volumes:
       - model-cache:/cache
     restart: always
     healthcheck:
       disable: false
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities:
-                - gpu
 
   redis:
     container_name: immich_redis
