@@ -15,4 +15,4 @@ services:
     working_dir: /debian-sandbox
     restart: unless-stopped
     volumes:
-      - ${DC_DOCKERDATA}/debian-sandbox:/debian-sandbox
+      - ${DC_DOCKERDATA_NVME}/debian-sandbox:/debian-sandbox

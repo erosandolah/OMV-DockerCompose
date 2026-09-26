@@ -9,6 +9,4 @@ services:
   debian:
     environment:
       # From the not git versioned global.env
-      - PUID=${APPUSER_UID}
-      - PGID=${APPUSER_GID}
       - TZ=${MY_TZ}
