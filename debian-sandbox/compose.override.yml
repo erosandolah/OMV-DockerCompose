@@ -10,3 +10,10 @@ services:
     environment:
       # From the not git versioned global.env
       - TZ=${MY_TZ}
+    networks:
+      - debian-sandbox
+
+networks:
+  debian-sandbox:
+    name: debian-sandbox
+    driver: bridge
