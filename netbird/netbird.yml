@@ -111,7 +111,7 @@ services:
       - '3478:3478/udp'
     volumes:
       - ${DC_DOCKERDATA_NVME}/netbird/netbird-server:/var/lib/netbird
-      - ${DC_DOCKERDATA_NVME}/netbird/netbird-server-config.yaml:/etc/netbird/config.yaml
+      - ./netbird-server-config.yaml:/etc/netbird/config.yaml
     command: ["--config", "/etc/netbird/config.yaml"]
     labels:
       - traefik.enable=true
