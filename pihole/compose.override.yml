@@ -19,8 +19,11 @@ services:
     restart: unless-stopped
     networks:
       - pihole
+      - eposz-local
 
 networks:
   pihole:
     name: pihole # To avoid pihole_default
     driver: bridge
+  eposz-local:
+    external: true
