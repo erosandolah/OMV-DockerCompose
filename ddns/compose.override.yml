@@ -14,3 +14,10 @@ services:
       - TZ=${MY_TZ}
       - LOGIN_ENV=${DDCLIENT_LOGIN}
       - PASSWORD_ENV=${DDCLIENT_PWD}
+    networks:
+      - ddns
+
+networks:
+  ddns:
+    name: ddns # To avoid ddns_default
+    driver: bridge
