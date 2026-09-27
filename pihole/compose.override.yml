@@ -17,3 +17,10 @@ services:
       #  we need to be able to change ownership of log files and databases in case FTL is started as a different user than pihole
       - CHOWN
     restart: unless-stopped
+    networks:
+      - pihole
+
+networks:
+  pihole:
+    name: pihole # To avoid pihole_default
+    driver: bridge
