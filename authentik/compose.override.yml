@@ -7,14 +7,14 @@
 
 services:
   postgresql:
-    #container_name: authentik-postgresql
+    container_name: authentik-postgresql
     environment:
       # From the not git versioned global.env
       - TZ=${MY_TZ}
     networks:
       - authentik
   server:
-    #container_name: authentik.eposz.local
+    container_name: authentik-server
     environment:
       # From the not git versioned global.env
       - TZ=${MY_TZ}
@@ -29,7 +29,7 @@ services:
         aliases:
           - authentik.eposz.local
   worker:
-    #container_name: authentik-worker
+    container_name: authentik-worker
     environment:
       # From the not git versioned global.env
       - TZ=${MY_TZ}
