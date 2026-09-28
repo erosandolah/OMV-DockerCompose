@@ -32,13 +32,10 @@ services:
     networks:
       authentik:
         aliases:
-          - authentik.eposz.local
-      eposz-local:
-        aliases:
-          - authentik.eposz.local
+          - authentik.eposz.freeddns.org
       netbird:
         aliases:
-          - authentik.eposz.local
+          - authentik.eposz.freeddns.org
   worker:
     container_name: authentik-worker
     environment:
@@ -47,7 +44,6 @@ services:
     user: "${APPUSER_UID}:${APPUSER_GID}"
     networks:
       - authentik
-      - eposz-local
       - netbird
 
 networks:
