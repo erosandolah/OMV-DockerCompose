@@ -15,6 +15,16 @@ services:
       - authentik
   server:
     container_name: authentik-server
+    labels:
+      - "traefik.enable=true"
+      # Figyeljük a kívánt domaint
+      - "traefik.http.routers.authentik.rule=Host(`authentik.${MY_FQDN}`)"
+      - "traefik.http.routers.authentik.entrypoints=websecure"
+      - "traefik.http.routers.authentik.tls=true"
+      # Megadjuk a Traefiknek, hogy az Authentik belsőleg a 9000-es porton (HTTP) várja a kéréseket
+      - "traefik.http.services.authentik.loadbalancer.server.port=9000"
+      # Ha a NetBird traefik-je certresolver-t használ (pl. 'letsencrypt'), azt is megadhatod:
+      - "traefik.http.routers.authentik.tls.certresolver=letsencrypt"
     environment:
       # From the not git versioned global.env
       - TZ=${MY_TZ}
