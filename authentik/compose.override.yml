@@ -32,10 +32,10 @@ services:
     networks:
       authentik:
         aliases:
-          - authentik.eposz.freeddns.org
+          - authentik.${MY_FQDN}
       netbird:
         aliases:
-          - authentik.eposz.freeddns.org
+          - authentik.${MY_FQDN}
   worker:
     container_name: authentik-worker
     environment:
