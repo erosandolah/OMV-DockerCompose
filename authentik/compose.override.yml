@@ -18,6 +18,7 @@ services:
     environment:
       # From the not git versioned global.env
       - TZ=${MY_TZ}
+    user: "${APPUSER_UID}:${APPUSER_GID}"
     networks:
       authentik:
         aliases:
@@ -33,6 +34,7 @@ services:
     environment:
       # From the not git versioned global.env
       - TZ=${MY_TZ}
+    user: "${APPUSER_UID}:${APPUSER_GID}"
     networks:
       - authentik
       - eposz-local
