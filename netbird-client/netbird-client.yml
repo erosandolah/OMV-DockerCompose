@@ -21,7 +21,7 @@ services:
       - ./netbird:/var/lib/netbird
     networks:
       eposz-local:
-        ipv4_address: 172.20.0.2
+        ipv4_address: 172.20.1.1
     extra_hosts:
       - "${MY_FQDN}:host-gateway"
 
