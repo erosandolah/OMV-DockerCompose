@@ -169,7 +169,7 @@ services:
       - NB_PROXY_DOMAIN=${MY_FQDN}
       - NB_PROXY_ADDRESS=:8443
       # docker compose exec -T netbird-server /go/bin/netbird-server admin token create --name "default-proxy" --config /etc/netbird/config.yaml 2>/dev/null | grep "^Token:" | awk '{print $2}'
-      - NB_PROXY_TOKEN=nbx_jkjo282zMCWHrW3kCCZXsilFrGjOQf3igUdC
+      - NB_PROXY_TOKEN=placeholder
       - NB_PROXY_CERTIFICATE_DIRECTORY=/certs
       - NB_PROXY_ACME_CERTIFICATES=true
       - NB_PROXY_ACME_CHALLENGE_TYPE=tls-alpn-01

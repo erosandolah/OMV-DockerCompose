@@ -22,3 +22,4 @@ services:
     environment:
       # From the not git versioned global.env
       - TZ=${MY_TZ}
+      - NB_PROXY_TOKEN=nbx_fEt3wRQAs9qxiME0CHVYTyqrJcJ0q60llzQK
