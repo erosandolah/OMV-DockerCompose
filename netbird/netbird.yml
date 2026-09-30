@@ -108,7 +108,7 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "${MY_FQDN}:host-gateway"
-      #- "authentik.${MY_FQDN}:host-gateway"
+    #  - "authentik.${MY_FQDN}:host-gateway"
     networks:
       - netbird
     ports:
@@ -157,7 +157,7 @@ services:
         condition: service_started
     extra_hosts:
       - "${MY_FQDN}:host-gateway"
-      - "authentik.${MY_FQDN}:host-gateway"
+    #  - "authentik.${MY_FQDN}:host-gateway"
     environment:
       # NetBird Proxy Configuration
       - NB_PROXY_DEBUG_LOGS=false
