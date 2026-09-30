@@ -18,8 +18,9 @@ services:
       - CHOWN
     restart: unless-stopped
     networks:
-      - pihole
-      - eposz-local
+      pihole:
+      eposz-local:
+        ipv4_address: 172.20.1.1
 
 networks:
   pihole:
