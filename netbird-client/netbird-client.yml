@@ -22,6 +22,8 @@ services:
     networks:
       eposz-local:
         ipv4_address: 172.20.0.2
+    extra_hosts:
+      - "${MY_FQDN}:host-gateway"
 
 networks:
   eposz-local:
