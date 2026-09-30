@@ -62,7 +62,7 @@ services:
       - netbird
     extra_hosts:
       - "${MY_FQDN}:host-gateway"
-      - "authentik.${MY_FQDN}:host-gateway"
+    #  - "authentik.${MY_FQDN}:host-gateway"
     environment:
       # Endpoints
       - NETBIRD_MGMT_API_ENDPOINT=https://${MY_FQDN}
@@ -108,7 +108,7 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "${MY_FQDN}:host-gateway"
-      - "authentik.${MY_FQDN}:host-gateway"
+      #- "authentik.${MY_FQDN}:host-gateway"
     networks:
       - netbird
     ports:
