@@ -10,4 +10,4 @@ services:
     environment:
       # From the not git versioned global.env
       - TZ=${MY_TZ}
-      - NB_SETUP_KEY=
+      - NB_SETUP_KEY=AA8DC304-ED78-44AD-9DBB-D98DFEE06D60
