@@ -20,7 +20,7 @@ services:
     networks:
       pihole:
       eposz-local:
-        ipv4_address: 172.20.1.1
+        ipv4_address: 172.20.2.1
 
 networks:
   pihole:
