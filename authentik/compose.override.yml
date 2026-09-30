@@ -22,7 +22,9 @@ services:
     networks:
       authentik:
       eposz-local:
-        ipv4_address: 172.20.2.1
+        ipv4_address: 172.20.3.1
+    extra_hosts:
+      - "${MY_FQDN}:host-gateway"
   worker:
     container_name: authentik-worker
     environment:
@@ -32,11 +34,13 @@ services:
     networks:
       authentik:
       eposz-local:
-        ipv4_address: 172.20.2.2
+        ipv4_address: 172.20.3.2
+    extra_hosts:
+      - "${MY_FQDN}:host-gateway"
 
 networks:
   authentik:
-    name: authentik # To avoid authentik_default
+    name: authentik # To avoid authentik_default or authentik_authentik
     driver: bridge
   eposz-local:
     external: true
