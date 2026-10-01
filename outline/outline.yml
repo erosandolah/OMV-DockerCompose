@@ -11,7 +11,7 @@ services:
     expose:
       - "3000"
     volumes:
-      - storage-data:/var/lib/outline/data
+      - ${DC_DOCKERDATA_NVME}/outline/storage-data:/var/lib/outline/data
     depends_on:
       - postgres
       - redis
@@ -36,7 +36,7 @@ services:
     expose:
       - "5432"
     volumes:
-      - database-data:/var/lib/postgresql
+      - ${DC_DOCKERDATA_NVME}/outline/database-data:/var/lib/postgresql
     healthcheck:
       test: ["CMD", "pg_isready", "-d", "outline", "-U", "user"]
       interval: 30s
@@ -57,7 +57,7 @@ services:
       - outline
     restart: always
     volumes:
-      - https-portal-data:/var/lib/https-portal
+      - ${DC_DOCKERDATA_NVME}/outline/https-portal-data:/var/lib/https-portal
     healthcheck:
       test: ["CMD", "service", "nginx", "status"]
       interval: 30s
@@ -69,7 +69,7 @@ services:
       WEBSOCKET: 'true'
       CLIENT_MAX_BODY_SIZE: '0'
 
-volumes:
-  https-portal-data:
-  storage-data:
-  database-data:
+#volumes:
+#  https-portal-data:
+#  storage-data:
+#  database-data:
