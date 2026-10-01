@@ -43,9 +43,9 @@ services:
       timeout: 20s
       retries: 3
     environment:
-      POSTGRES_USER: 'user'
-      POSTGRES_PASSWORD: 'pass'
-      POSTGRES_DB: 'outline'
+      POSTGRES_USER: ${OLC_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${OLC_POSTGRES_PASSWORD}
+      POSTGRES_DB: ${OLC_POSTGRES_DB}
 
   https-portal:
     image: steveltn/https-portal
