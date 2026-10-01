@@ -5,3 +5,31 @@
 # 
 
 
+services:
+  outline:
+    environment:
+      # From the not git versioned global.env
+      - TZ=${MY_TZ}
+    networks:
+      outline:
+      eposz-local:
+        ipv4_address: 172.20.4.1
+  redis:
+    environment:
+      # From the not git versioned global.env
+      - TZ=${MY_TZ}
+    networks:
+      outline:
+  postgres:
+    environment:
+      # From the not git versioned global.env
+      - TZ=${MY_TZ}
+    networks:
+      outline:
+
+networks:
+  outline:
+    name: outline # To avoid outline_default
+    driver: bridge
+  eposz-local:
+    external: true
