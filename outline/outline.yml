@@ -6,6 +6,7 @@
 
 services:
   outline:
+    container_name: outline-server
     image: docker.getoutline.com/outlinewiki/outline:latest
     env_file: ${DC_DOCKERCOMPOSE}/outline/outline.env
     expose:
@@ -17,6 +18,7 @@ services:
       - redis
 
   redis:
+    container_name: outline-redis
     image: redis
     env_file: ${DC_DOCKERCOMPOSE}/outline/outline.env
     expose:
@@ -31,6 +33,7 @@ services:
       retries: 3
 
   postgres:
+    container_name: outline-postgres
     image: postgres:18
     env_file: ${DC_DOCKERCOMPOSE}/outline/outline.env
     expose:
