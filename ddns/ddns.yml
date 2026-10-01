@@ -7,7 +7,7 @@
 services:
   ddclient:
     image: lscr.io/linuxserver/ddclient:latest
-    container_name: ddclient
+    container_name: ddns-ddclient
     volumes:
       - .:/config
     restart: unless-stopped
