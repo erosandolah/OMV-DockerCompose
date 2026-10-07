@@ -7,6 +7,7 @@
 
 services:
   outline:
+    restart: unless-stopped
     environment:
       # From the not git versioned global.env
       - TZ=${MY_TZ}
@@ -15,12 +16,14 @@ services:
       eposz-local:
         ipv4_address: 172.20.4.1
   redis:
+    restart: unless-stopped
     environment:
       # From the not git versioned global.env
       - TZ=${MY_TZ}
     networks:
       outline:
   postgres:
+    restart: unless-stopped
     environment:
       # From the not git versioned global.env
       - TZ=${MY_TZ}
