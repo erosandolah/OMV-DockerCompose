@@ -34,6 +34,8 @@ services:
       FTLCONF_dns_listeningMode: 'ALL'
       # My extra config for resolving locally all *.${MY_FQDN} addresses to my internal IP (HAIRPIN-Nat issue w my router)
       FTLCONF_misc_etc_dnsmasq_d: 'true'
+      # Setting the domain on which the web interface is allowed to be served
+      FTLCONF_webserver_domain: 'omv.eposz.local'
     # Volumes store your data between container upgrades
     volumes:
       # For persisting Pi-hole's databases and common configuration file

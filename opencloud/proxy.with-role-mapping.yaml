@@ -1,0 +1,64 @@
+### IMPORTANT FOR AUTHENTIK - the "role_assignment" section
+role_assignment:
+    driver: oidc
+    oidc_role_mapper:
+        role_claim: groups
+        role_mapping:
+            #- role_name: service-account
+            #  claim_value: AuthentikGorupname
+            - role_name: admin    # Opencloud role name
+              claim_value: Admins # Authentik group name
+            - role_name: spaceadmin
+              claim_value: Admins
+            - role_name: user
+              claim_value: Family-Members
+            #- role_name: user-light
+            #  claim_value: AuthentikGorupname
+            #- role_name: ?guest?
+            #  claim_value: AuthentikGorupname
+
+
+# This adds additional routes to the proxy. Forwarding
+# request on '/carddav/', '/caldav/' and the respective '/.well-knwown'
+# endpoints to the radicale container and setting the required headers.
+# '/yjs' is forwarded to the yjs container.
+additional_policies:
+  - name: default
+    routes:
+      - endpoint: /yjs
+        backend: http://yjs:1234
+        unprotected: true
+      - endpoint: /caldav/
+        backend: http://radicale:5232
+        remote_user_header: X-Remote-User
+        skip_x_access_token: true
+        additional_headers:
+          - X-Script-Name: /caldav
+      - endpoint: /.well-known/caldav
+        backend: http://radicale:5232
+        remote_user_header: X-Remote-User
+        skip_x_access_token: true
+        additional_headers:
+          - X-Script-Name: /caldav
+      - endpoint: /carddav/
+        backend: http://radicale:5232
+        remote_user_header: X-Remote-User
+        skip_x_access_token: true
+        additional_headers:
+          - X-Script-Name: /carddav
+      - endpoint: /.well-known/carddav
+        backend: http://radicale:5232
+        remote_user_header: X-Remote-User
+        skip_x_access_token: true
+        additional_headers:
+          - X-Script-Name: /carddav
+# To enable the radicale web UI add this rule.
+# "unprotected" is True because the Web UI itself ask for
+# the password.
+# Also set "type" to "internal" in the config/radicale/config
+#      - endpoint: /caldav/.web/
+#        backend: http://radicale:5232/
+#        unprotected: true
+#        skip_x_access_token: true
+#        additional_headers:
+#          - X-Script-Name: /caldav

@@ -18,7 +18,7 @@ services:
       - NB_MANAGEMENT_URL=https://${MY_FQDN}
       - NB_HOSTNAME=eposz-local
     volumes:
-      - ./netbird:/var/lib/netbird
+      - ./netbird-client:/var/lib/netbird
     networks:
       eposz-local:
         ipv4_address: 172.20.1.1

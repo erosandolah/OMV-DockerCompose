@@ -4,10 +4,7 @@ global.env
 netbird/netbird-server-config.yaml
 
 #netbird-client
-netbird-client/netbird
-
-#pihole
-pihole/etc-pihole
+netbird-client/netbird-client
 
 #docmost
 docmost/db_data
