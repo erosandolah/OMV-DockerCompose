@@ -2,18 +2,18 @@
 role_assignment:
     driver: oidc
     oidc_role_mapper:
-        role_claim: groups
+        role_claim: entitlements
         role_mapping:
             #- role_name: service-account
             #  claim_value: AuthentikGorupname
             - role_name: admin    # Opencloud role name
-              claim_value: OpenCloud-Admins # Authentik group name
+              claim_value: admin # Authentik application level entitlement name
             - role_name: spaceadmin
-              claim_value: OpenCloud-Spaceadmins
+              claim_value: spaceadmin
             - role_name: user
-              claim_value: OpenCloud-Users
+              claim_value: user
             - role_name: user-light
-              claim_value: OpenCloud-LightUsers
+              claim_value: user-light
             #- role_name: ?guest?
             #  claim_value: AuthentikGorupname
 
