@@ -1,3 +1,4 @@
 [submodule "opencloud-compose"]
-	path = opencloud-compose
-	url = https://github.com/opencloud-eu/opencloud-compose.git
+    path = opencloud-compose
+    url = https://github.com/opencloud-eu/opencloud-compose.git
+    ignore = untracked
