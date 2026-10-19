@@ -1,0 +1,12 @@
+:9000 {
+  # 1. Elkapjuk a rövidített felfedezési útvonalat
+  @discovery path /.well-known/openid-configuration
+    
+  # 2. Transzparensen átírjuk az opencloud hosszú útvonalára (Írd be a pontos slug-ot, pl: opencloud)
+  rewrite @discovery /application/o/opencloud/.well-known/openid-configuration
+    
+  # 3. Minden forgalmat továbbítunk az Authentik szervernek
+  reverse_proxy server:9000 {
+    header_up X-Forwarded-Proto https
+  }
+}

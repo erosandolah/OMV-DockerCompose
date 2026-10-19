@@ -7,6 +7,13 @@
 
 services:
   traefik:
+    command:
+      # Enable the Traefik dashboard
+      #- "--api.insecure=true"  # Turn off insecure port 8080
+      #- "--api.dashboard=true"  # Enable dashboard
+    ports:
+      # Enable the Traefik dashboard
+      #- '192.168.0.100:8090:8080'
     environment:
       # From the not git versioned global.env
       - TZ=${MY_TZ}
